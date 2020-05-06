@@ -194,12 +194,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Amazon Linux 2" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Amazon Linux 2 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Amazon Linux 2 Logs" || echo "Failed to upload logs"
 
   arch-lts:
     name: Arch Linux LTS
@@ -290,12 +302,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Arch Linux LTS" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Arch Linux LTS Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Arch Linux LTS Logs" || echo "Failed to upload logs"
 
   centos-7:
     name: CentOS 7
@@ -386,12 +410,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="CentOS 7" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="CentOS 7 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="CentOS 7 Logs" || echo "Failed to upload logs"
 
   centos-7-m2crypto:
     name: CentOS 7 M2Crypto
@@ -482,12 +518,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="CentOS 7 M2Crypto" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="CentOS 7 M2Crypto Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="CentOS 7 M2Crypto Logs" || echo "Failed to upload logs"
 
   centos-7-proxy:
     name: CentOS 7 Proxy
@@ -578,12 +626,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="CentOS 7 Proxy" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="CentOS 7 Proxy Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="CentOS 7 Proxy Logs" || echo "Failed to upload logs"
 
   centos-7-pycryptodome:
     name: CentOS 7 PyCryptodome
@@ -674,12 +734,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="CentOS 7 PyCryptodome" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="CentOS 7 PyCryptodome Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="CentOS 7 PyCryptodome Logs" || echo "Failed to upload logs"
 
   centos-7-tcp:
     name: CentOS 7 TCP
@@ -770,12 +842,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="CentOS 7 TCP" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="CentOS 7 TCP Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="CentOS 7 TCP Logs" || echo "Failed to upload logs"
 
   centos-8:
     name: CentOS 8
@@ -866,12 +950,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="CentOS 8" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="CentOS 8 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="CentOS 8 Logs" || echo "Failed to upload logs"
 
   debian-10:
     name: Debian 10
@@ -962,12 +1058,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Debian 10" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Debian 10 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Debian 10 Logs" || echo "Failed to upload logs"
 
   debian-9:
     name: Debian 9
@@ -1058,12 +1166,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Debian 9" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Debian 9 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Debian 9 Logs" || echo "Failed to upload logs"
 
   fedora-31:
     name: Fedora 31
@@ -1154,12 +1274,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Fedora 31" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Fedora 31 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Fedora 31 Logs" || echo "Failed to upload logs"
 
   fedora-32:
     name: Fedora 32
@@ -1250,12 +1382,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Fedora 32" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Fedora 32 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Fedora 32 Logs" || echo "Failed to upload logs"
 
   opensuse-15:
     name: Opensuse 15
@@ -1346,12 +1490,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Opensuse 15" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Opensuse 15 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Opensuse 15 Logs" || echo "Failed to upload logs"
 
   ubuntu-1604:
     name: Ubuntu 16.04
@@ -1442,12 +1598,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Ubuntu 16.04" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Ubuntu 16.04 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Ubuntu 16.04 Logs" || echo "Failed to upload logs"
 
   ubuntu-1604-m2crypto:
     name: Ubuntu 16.04 M2Crypto
@@ -1538,12 +1706,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Ubuntu 16.04 M2Crypto" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Ubuntu 16.04 M2Crypto Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Ubuntu 16.04 M2Crypto Logs" || echo "Failed to upload logs"
 
   ubuntu-1604-proxy:
     name: Ubuntu 16.04 Proxy
@@ -1634,12 +1814,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Ubuntu 16.04 Proxy" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Ubuntu 16.04 Proxy Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Ubuntu 16.04 Proxy Logs" || echo "Failed to upload logs"
 
   ubuntu-1604-pycryptodome:
     name: Ubuntu 16.04 PyCryptodome
@@ -1730,12 +1922,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Ubuntu 16.04 PyCryptodome" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Ubuntu 16.04 PyCryptodome Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Ubuntu 16.04 PyCryptodome Logs" || echo "Failed to upload logs"
 
   ubuntu-1604-tcp:
     name: Ubuntu 16.04 TCP
@@ -1826,12 +2030,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Ubuntu 16.04 TCP" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Ubuntu 16.04 TCP Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Ubuntu 16.04 TCP Logs" || echo "Failed to upload logs"
 
   ubuntu-1804:
     name: Ubuntu 18.04
@@ -1922,12 +2138,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Ubuntu 18.04" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Ubuntu 18.04 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Ubuntu 18.04 Logs" || echo "Failed to upload logs"
 
   ubuntu-2004:
     name: Ubuntu 20.04
@@ -2018,12 +2246,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Ubuntu 20.04" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Ubuntu 20.04 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Ubuntu 20.04 Logs" || echo "Failed to upload logs"
 
   macos:
     name: macOS Catalina 10.15
@@ -2053,12 +2293,24 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="macOS Catalina 10.15" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="macOS Catalina 10.15 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="macOS Catalina 10.15 Logs" || echo "Failed to upload logs"
 
   windows:
     name: Windows Server 2019
@@ -2088,10 +2340,22 @@ jobs:
       if: always()
       shell: bash
       run: |
-        curl https://report.ci/report.py > report.py
-          python report.py \
-          --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
-          --log-as-python 'artifacts/logs/*.log'
-          --merge ".*" \
-          --name="Windows Server 2019" || echo "Failed to upload test results"
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --include-as-junit 'artifacts/xml-unittests-output/*.xml' \
+        --merge ".*" \
+        --name="Windows Server 2019 Tests" || echo "Failed to upload test results"
+
+    - name: Upload Logs
+      if: always()
+      shell: bash
+      run: |
+        if [ ! -f report.py ]; then
+          curl https://report.ci/report.py > report.py
+        fi
+        python report.py \
+        --log-as-python 'artifacts/logs/*.log'
+        --name="Windows Server 2019 Logs" || echo "Failed to upload logs"
 
